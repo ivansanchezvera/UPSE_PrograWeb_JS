@@ -1,6 +1,9 @@
 console.log("Inicio del programa");
-var clave = prompt("Hola Usuario, Ingrese su clave en minusculas!");
-console.log("La longitud de la clave es: " + clave.length);
-console.log("TA-DA!!! Su clave es: " + clave.toUpperCase());
-console.log("El valor original de la clave es: " +  clave);
+alert("Este es el juego del cuenta cuentos. Sigue las instrucciones.");
+var sustantivo1 = prompt("Ingrese un Sustantivo");
+var adjectivo1 = prompt("Ingrese un Adjectivo");
+var verbo1 = prompt("Ingrese un verbo");
+
+var cuento = "El " + adjectivo1 + " " + sustantivo1 + " queria " + verbo1 + " en el balcon de su caleta!";
+document.write("<h1>Cuento</h1><p>" + cuento + "</p>");
 console.log("Programa completado");

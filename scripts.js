@@ -1,11 +1,4 @@
 console.log("Inicio del programa");
-//alert("Hola JavaScript");
-//document.write("<h1>Hola JS UPSE</p>");
-//alert("Gracias por visitar");
-
-var mensaje = "A lo real G for life";
-alert(mensaje);
-mensaje = "Bienvenidos a la pagina de Mafia Chumi";
-alert(mensaje);
-
+var equipo = prompt("Cual es tu equipo de futbol favorito?");
+console.log("El equipo es: " + equipo);
 console.log("Programa completado");

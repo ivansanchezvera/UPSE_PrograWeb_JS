@@ -1,8 +1,6 @@
 console.log("Inicio del programa");
-var visitante = prompt("Cual es tu nombre?");
-var mensaje = visitante + " bienvenido!";
-mensaje = mensaje + " \nHola como estas? ";
-mensaje +=  "Nos alegra que visites la pagina de nuestra organización. ";
-mensaje = mensaje + "Si tienes dudas, anda a la pagina de contacto y mándanos un mensaje.";
-alert(mensaje);
+var clave = prompt("Hola Usuario, Ingrese su clave en minusculas!");
+console.log("La longitud de la clave es: " + clave.length);
+console.log("TA-DA!!! Su clave es: " + clave.toUpperCase());
+console.log("El valor original de la clave es: " +  clave);
 console.log("Programa completado");

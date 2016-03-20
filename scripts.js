@@ -7,6 +7,22 @@ if(parseInt(numeroUsuario)===numeroAdivinable)
 {
 	adivinoCorrectamente = true;
 	
+}else if(parseInt(numeroUsuario)>numeroAdivinable)
+{
+	alert("Hey! Por alli dicen que el numero adivinable es menor que el que pusiste!");
+	var nuevoIntento = prompt("Intentalo de nuevo");
+	if(parseInt(nuevoIntento)===numeroAdivinable)
+	{
+		adivinoCorrectamente = true;
+	}
+}else if(parseInt(numeroUsuario)<numeroAdivinable)
+{
+	alert("Me sapearon que el numero es mayor al que dijiste, apuestale con confianza!");
+	var nuevoIntento = prompt("Intentalo de nuevo");
+	if(parseInt(nuevoIntento)===numeroAdivinable)
+	{
+		adivinoCorrectamente = true;
+	}
 }
 
 if(adivinoCorrectamente){

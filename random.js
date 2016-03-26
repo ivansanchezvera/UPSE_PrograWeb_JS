@@ -1,9 +1,9 @@
 function tiraDados(){
 	var dado = Math.floor(Math.random() * 6) + 1;
-	alert(dado);	
+	return dado;
 }
 
 alert("Tiramos 3 dados: ");
-tiraDados();
-tiraDados();
-tiraDados();
+alert(tiraDados());
+alert(tiraDados());
+alert(tiraDados());

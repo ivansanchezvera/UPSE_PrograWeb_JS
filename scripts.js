@@ -1,46 +1,49 @@
 /*
-Este programa simula un juego de adivinar un numero.
-El numero a adivinar es escogido al comienzo y es un numero al azar.
-El jugador tiene que adivinar el numero. Si no adivina al primer
-intento, se le da una pista y puede intentar una segunda vez.
-Si no adivina en 2 intentos es un LOOOOOOSEEEEEEER!
-Este programa es para practicar condiciones IF-ELSE y comentarios.
-*/
+Este programa pregunta 5 cosas*/
 console.log("Inicio del programa");
-var adivinoCorrectamente = false;
-document.write("<h1>Adivina el numero y gana un billo!</h1>");
-//Escogemos el numero a adivinar entre el 1 y el 10 inclusivo.
-var numeroAdivinable = Math.floor(Math.random() * 10) + 1;
-var numeroUsuario = prompt("Que numero crees que es el secreto (del 1 al 10)");
-if(parseInt(numeroUsuario)===numeroAdivinable)
+var preg1 = prompt("En que año se fundo la UPSE?");
+var preg2 = prompt("Pais donde murio Bolivar?");
+var preg3 = prompt("JS es un lenguaje compilado, si o no?");
+var preg4 = prompt("Cual es el Pais con mas habitantes en el mundo?");
+var preg5 = prompt("Si Necesita Reggaeton?");
+var puntaje = 0;
+if(preg1 == '1998')
 {
-	adivinoCorrectamente = true;
-	
-}else if(parseInt(numeroUsuario)>numeroAdivinable)
-{
-	alert("Hey! Por alli dicen que el numero adivinable es menor que el que pusiste!");
-	//Segunda oportunidad de adivinar
-	var nuevoIntento = prompt("Intentalo de nuevo");
-	if(parseInt(nuevoIntento)===numeroAdivinable)
-	{
-		adivinoCorrectamente = true;
-	}
-}else if(parseInt(numeroUsuario)<numeroAdivinable)
-{
-	alert("Me sapearon que el numero es mayor al que dijiste, apuestale con confianza!");
-	//Segunda oportunidad de adivinar
-	var nuevoIntento = prompt("Intentalo de nuevo");
-	if(parseInt(nuevoIntento)===numeroAdivinable)
-	{
-		adivinoCorrectamente = true;
-	}
+	puntaje++;
 }
 
-if(adivinoCorrectamente){
-	document.write("<p>Ganaste un billo</p>");
-}else{
-	document.write("<p>Perdiste la apuesta pelad@. El numero correcto era: " 
-		+ numeroAdivinable + "</p>");
+if(preg2.toLowerCase() == 'colombia')
+{
+	puntaje++;
 }
+
+if(preg3.toLowerCase() == 'no')
+{
+	puntaje++;
+}
+
+if(preg4.toLowerCase() == 'china')
+{
+	puntaje++;
+}
+
+if(preg5.toLowerCase() == 'dale')
+{
+	puntaje++;
+}
+
+if(puntaje>4){
+	alert("Medalla de oro");
+}else if(puntaje>2){
+	alert("Medalla de plata");
+}else if(puntaje>0){
+	alert("Medalla de bronce");
+}else{
+	alert("LOOOOOOOOOOSEEEEEEER!");
+}
+
+
+
+
 
 console.log("Programa completado");

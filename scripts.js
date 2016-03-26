@@ -33,13 +33,16 @@ if(preg5.toLowerCase() == 'dale')
 }
 
 if(puntaje>4){
-	alert("Medalla de oro");
+	document.write("<h1>Medalla de oro</h1>");
+	document.write("<h2>Ud. obtuvo " + puntaje + " respuestas correctas.</h2>");
 }else if(puntaje>2){
-	alert("Medalla de plata");
+	document.write("<h1>Medalla de plata</h1>");
+	document.write("<h2>Ud. obtuvo " + puntaje + " respuestas correctas.</h2>");
 }else if(puntaje>0){
-	alert("Medalla de bronce");
+	document.write("<h1>Medalla de bronce</h1>");
+	document.write("<h2>Ud. obtuvo " + puntaje + " respuestas correctas.</h2>");
 }else{
-	alert("LOOOOOOOOOOSEEEEEEER!");
+	document.write("<h1>LOOOOOOOOOOSEEEEEEER!</h1>");
 }
 
 

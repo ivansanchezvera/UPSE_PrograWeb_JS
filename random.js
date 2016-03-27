@@ -3,7 +3,12 @@ function numeroAlAzarEntreLimites( limiteInferior, limiteSuperior ){
 	return num;
 }
 
-var limiteSuperior = parseInt(prompt("Ingrese un limite superior para el numero al azar"));
-var limiteInferior = parseInt(prompt("Ingrese un limite inferior para el numero al azar"));
+var limiteSuperior = prompt("Ingrese un limite superior para el numero al azar");
+var limiteInferior = prompt("Ingrese un limite inferior para el numero al azar");
 
-alert("Su numero al Azar es: " + numeroAlAzarEntreLimites(limiteInferior,limiteSuperior));
+if(isNaN(limiteInferior)||isNaN(limiteSuperior))
+{	//Lanzando errores
+	throw new Error("Valor ingresado no corresponde a un numero");;
+}else{
+	alert("Su numero al Azar es: " + numeroAlAzarEntreLimites(parseInt(limiteInferior),parseInt(limiteSuperior)));
+}

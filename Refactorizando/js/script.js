@@ -4,10 +4,15 @@ var green;
 var blue;
 var rgbColor;
 
+function obtenerColorRGB()
+{
+	return Math.floor(Math.random() * 256 );
+}
+
 for (var i = 0; i < 10; i++) {
-	red = Math.floor(Math.random() * 256 );
-	green = Math.floor(Math.random() * 256 );
-	blue = Math.floor(Math.random() * 256 );
+	red = obtenerColorRGB();
+	green = obtenerColorRGB();
+	blue = obtenerColorRGB();
 	rgbColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
 	html += '<div style="background-color:' + rgbColor + '"></div>';
 }

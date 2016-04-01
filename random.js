@@ -11,11 +11,12 @@ function numeroAlAzarEntreLimites( limiteInferior, limiteSuperior ){
 
 var limiteSuperior = prompt("Ingrese un limite superior para el numero al azar");
 var limiteInferior = prompt("Ingrese un limite inferior para el numero al azar");
+var randomico = numeroAlAzarEntreLimites(parseInt(limiteInferior), parseInt(limiteSuperior));
+var conteoAdivinanzas = 0;
+do{
+	var adivinado = prompt("Adivina el numero del " + limiteInferior + " hasta el " + limiteSuperior);
+	conteoAdivinanzas++;
+	}while(randomico!= parseInt(adivinado))
 
-var contador = 0;
-while(contador<10)
-{
-	var randomico = numeroAlAzarEntreLimites(parseInt(limiteInferior), parseInt(limiteSuperior));
-	document.write(randomico + " ");
-	contador++;
-}
+document.write("<h1>Adivinaste el numero!</h1>");
+document.write("Solo te tomo " + conteoAdivinanzas + " intentos!");

@@ -5,13 +5,13 @@ push y unshift
 */
 
 //Esta funcion arma el HTML una lista ordenada de elementos
-function printList( list ) {
-  var listHTML = '<ol>';
-  for (var i = 0; i < list.length; i += 1) {
-    listHTML += '<li>' + list[i] + '</li>';
+function printListaReproduccion( listaCanciones ) {
+  var listaHTML = '<ol>';
+  for (var i = 0; i < listaCanciones.length; i += 1) {
+    listaHTML += '<li>Tema: ' +listaCanciones[i][0] + '. Por: ' + listaCanciones[i][1]  + '</li>';
   }
-  listHTML += '</ol>';
-  print(listHTML);
+  listaHTML += '</ol>';
+  print(listaHTML);
 }
 
 //Esta funcion imprime el HTML que le demos
@@ -20,11 +20,11 @@ function print(html) {
 }
 
 var playList = [];
-playList.push("Strangers in the night");
-playList.push("Mi conejito era tan bandidon");
-playList.push("Borro Cassette", "Ginza");
-playList.unshift("The girl from Ipanema");
-playList.unshift("Soneros de Bailadores");
+playList.push(["Strangers in the night", "Frank Sinatra"]);
+playList.push(["Mi conejito era tan bandidon", "Los Conquistadores"]);
+playList.push(["Borro Cassette", "Maluma"]);
+playList.unshift(["The girl from Ipanema", "Astrud Gilberto & Stan Getz"]);
+playList.unshift(["Soneros de Bailadores","Cheo Feliciano, Pete 'El Conde' Rodriguez, Tito Puente, Perico, Giovanni"]);
 
-printList( playList );
+printListaReproduccion( playList );
 

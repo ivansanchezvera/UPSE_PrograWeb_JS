@@ -1,43 +1,39 @@
-var preguntas = [];
-preguntas.push(["Cuantos goles le metio Barcelona a Liga?", 5]);
-preguntas.push(["Porque perdio Ecuador en Barranquilla?", "achilier"]);
-preguntas.push(["Cuantas areas protegidas tiene el Ecuador?", 50]); //http://www.ambiente.gob.ec/areas-protegidas-3/
-preguntas.push(["Cuantos años lleva Correa en el poder ejecutivo?", 9]);
-preguntas.push(["Quien escribio la carta de Jamaica?", "bolivar"]);
-
+var preguntas = [
+{ pregunta: "Cuantos goles le metio Barcelona a Liga?", respuesta: 5},
+{ pregunta: "Porque perdio Ecuador en Barranquilla?", respuesta: "achilier"},
+{ pregunta: "Cuantas areas protegidas tiene el Ecuador?", respuesta: 50}, //http://www.ambiente.gob.ec/areas-protegidas-3/
+{ pregunta: "Cuantos años lleva Correa en el poder ejecutivo?", respuesta: 9},
+{ pregunta: "Quien escribio la carta de Jamaica?", respuesta: "bolivar"}
+];
 //Imprime las respuestas, distinguiendo del tipo, correcta o incorrecta
-function imprimirRespuestas(tipoRespuestas)
+function imprimirRespuestas(respondidaCorrectamente)
 {
-	var arregloRespuestas;
 	var stringRespuestas = '';
-	if(tipoRespuestas.toLowerCase()=="correctas" || tipoRespuestas.toLowerCase()=="incorrectas")
-	{
-		if(tipoRespuestas=="correctas")
+	var contRespuestas = 0;
+	for (var i =0; i<preguntas.length; i++)
+	{	
+		if(respondidaCorrectamente==preguntas[i]["acerto"])
 		{
-			arregloRespuestas = correctas;
-		}else{
-			arregloRespuestas = incorrectas;
-		}
-
-		if(arregloRespuestas.length<1)
-		{
-			stringRespuestas = "No hubo respuestas " + tipoRespuestas;
-		}
-		for (var i =0; i<arregloRespuestas.length; i++)
-		{
-			stringRespuestas += "<p><b>" + arregloRespuestas[i][0] + "</b><br>" + 
-			arregloRespuestas[i][1] + "</p>";
-			
-			//Si la respuesta es incorrecta, agregar las respuesta verdadera
-			if(tipoRespuestas=="incorrectas")
+			contRespuestas++;
+			stringRespuestas += "<p><b>" + preguntas[i].pregunta + "</b><br>" + 
+			preguntas[i].respuestaUsuario + "</p>";		
+		
+			//Si la respuesta es incorrecta, agregar las respuesta verdadera	
+			if(!preguntas[i].acerto)
 			{
-				stringRespuestas+= "<i>La respuesta correcta era: " + 
-				arregloRespuestas[i][2] + "</i>";
-			}
+			stringRespuestas+= "<i>La respuesta correcta era: " + 
+			preguntas[i].respuesta + "</i>";
+			}	
 		}
-	}else{
-		alert("error, vea consola!");
-		throw new Error("Tipo de Respuesta no aceptado");
+	}
+	
+	if(contRespuestas<1)
+	{
+		stringRespuestas = "No hubo respuestas ";
+		if(respondidaCorrectamente){
+			stringRespuestas += "correctas";
+		}else{
+			stringRespuestas += "incorrectas";}
 	}
 	return stringRespuestas;
 }
@@ -45,10 +41,10 @@ function imprimirRespuestas(tipoRespuestas)
 //Imprime todas el cuestionario, incluyendo respuestas correctas e incorrectas
 function imprimirCuestionario()
 {
-	html += "<h3>Respuestas Correctas</h3>";
-	html += imprimirRespuestas("correctas");
-	html += '<h3 style="color:red;"">Respuestas Incorrectas</h3>';
-	html += imprimirRespuestas("incorrectas");
+	html += '<h3 style="color:green;">Respuestas Correctas</h3>';
+	html += imprimirRespuestas(true);
+	html += '<h3 style="color:red;">Respuestas Incorrectas</h3>';
+	html += imprimirRespuestas(false);
 	return html;
 }
 
@@ -60,30 +56,26 @@ function printHTML(mensaje)
 	outputDiv.innerHTML = mensaje;
 }
 
-var respuestas = [];
-var correctas = [];
-var incorrectas = [];
-
 //Preguntamos y procesamos las respuestas
 for(var i=0; i<preguntas.length; i++)
 {
 	var respuestaSimple;
 	do{
-		respuestaSimple = prompt("Responda: " + preguntas[i][0]);
+		respuestaSimple = prompt("Responda: " + preguntas[i].pregunta);
 	}while(respuestaSimple=='')
 
 	if(isNaN(respuestaSimple))
 	{
-		respuestas.push(respuestaSimple.toLowerCase());
+		preguntas[i].respuestaUsuario = respuestaSimple.toLowerCase();
 	}else{
-		respuestas.push(parseInt(respuestaSimple));
+		preguntas[i].respuestaUsuario = parseInt(respuestaSimple);
 	}
 
-	if(respuestas[i]==preguntas[i][1])
+	if(preguntas[i].respuestaUsuario==preguntas[i].respuesta)
 	{
-		correctas.push(preguntas[i]);
+		preguntas[i].acerto = true;
 	}else{
-		incorrectas.push([preguntas[i][0],respuestas[i],preguntas[i][1]]);
+		preguntas[i].acerto = false;	
 	}
 }
 

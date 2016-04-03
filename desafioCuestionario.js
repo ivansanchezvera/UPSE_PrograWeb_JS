@@ -52,6 +52,14 @@ function imprimirCuestionario()
 	return html;
 }
 
+function printHTML(mensaje)
+{
+	//document.write(html);
+	//Reemplazado por Get elementByID para tomar el nodo (Node Object) en el DOM
+	var outputDiv = document.getElementById("output");
+	outputDiv.innerHTML = mensaje;
+}
+
 var respuestas = [];
 var correctas = [];
 var incorrectas = [];
@@ -82,4 +90,4 @@ for(var i=0; i<preguntas.length; i++)
 var html = "<h1>Pregunta Pregunton</h1>";
 html += "<h2>Aqui el resultado de sus respuestas</h2>"
 html += imprimirCuestionario();
-document.write(html);
+printHTML(html);
